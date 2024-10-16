@@ -17,16 +17,6 @@ db.serialize(() => {
     role TEXT NOT NULL
   )`);
 
-  // Criar a tabela de consultas
-  db.run(`CREATE TABLE IF NOT EXISTS consultations (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    doctor TEXT NOT NULL,
-    date TEXT NOT NULL,
-    status TEXT NOT NULL,
-    userId INTEGER,
-    FOREIGN KEY (userId) REFERENCES users(id)
-  )`);
-  
   db.serialize(() => {
     db.run(`CREATE TABLE IF NOT EXISTS consultations (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
